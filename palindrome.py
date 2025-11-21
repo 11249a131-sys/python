@@ -1,25 +1,29 @@
-//Aim:
-      To develop a Python program that checks whether a given number is a palindrome and counts the occurrences of each digit.
-
+//Aim:To write a Python program that checks whether a given number is a palindrome or not and also counts the occurrence of each digit in the number.
 //Algorithm:
-step 1: Start the program.
-step 2: Input a number as a string.
-step 3: Reverse the number using slicing ([::-1]).
-step 4: Compare the reversed string with the original:
-step 5: If equal → Palindrome
-step 6: Else → Not a palindrome
-step 7: For each unique digit, count how many times it appears using .count().
-stsep 8: Display the results.
-step 9: End the program.
-
+1.Start the program.
+2.Accept a number from the user.
+3.Convert the number to a string for easy comparison and counting.
+4.Reverse the string and check if it is the same as the original — if yes, it’s a palindrome; otherwise, it’s not.
+5.Initialize an empty dictionary to store digit occurrences.
+6.Traverse through each digit in the number:
+7.If the digit is already in the dictionary, increase its count by 1.
+8.Otherwise, add it to the dictionary with count 1.
+9.Display whether the number is a palindrome or not.
+10.Display each digit and its number of occurrences.
+11.Stop the program.
 //Program:
 num = input("Enter a number: ")
 if num == num[::-1]:
-    print(f"{num} is a Palindrome number.")
+    print("The number is a Palindrome.")
 else:
-    print(f"{num} is NOT a Palindrome number.")
-print("\nDigit Occurrences:")
-for digit in sorted(set(num)):
-    print(f"Digit {digit} occurs {num.count(digit)} time(s).")
-
-//Result:
+    print("The number is not a Palindrome.")
+count = {}
+for digit in num:
+    if digit in count:
+        count[digit] += 1
+    else:
+        count[digit] = 1
+print("Digit occurrences:")
+for digit, freq in count.items():
+    print(f"Digit {digit} occurs { freq } time(s).")
+//Result:program to check whether a given number is a palindrome or not executed succesfully.
